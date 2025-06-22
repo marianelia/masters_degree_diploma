@@ -25,6 +25,26 @@
      <property name="currentIndex">
       <number>0</number>
      </property>
+		<widget class="QWidget" name="predictTab">
+			<property name="sizePolicy">
+				<sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+					<horstretch>0</horstretch>
+					<verstretch>0</verstretch>
+				</sizepolicy>
+			</property>
+			<attribute name="title">
+				<string>Предсказание команд</string>
+			</attribute>
+			<layout class="QVBoxLayout" name="verticalLayout_10">
+				<item>
+					<layout class="QVBoxLayout" name="verticalLayout_11">
+						<item>
+							<widget class="QListWidget" name="insightList1"/>
+						</item>
+					</layout>
+				</item>
+			</layout>
+		</widget>
      <widget class="QWidget" name="macrosTab">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">

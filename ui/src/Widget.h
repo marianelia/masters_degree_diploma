@@ -2,6 +2,19 @@
 #include <QWidget>
 #include <QListWidgetItem>
 
+#include <QTimer>
+#include <QDir>
+#include <QFileInfo>
+#include <QString>
+#include <QDebug>
+#include <winver.h>
+#include <QProcess>
+#include <regex>
+#include <sstream>
+
+#include "stdafx.h"
+#include "hostQtUi.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -20,47 +33,28 @@ public:
 private slots:
 	void onItemClicked(QListWidgetItem* item);
 	void onTryButtonClicked();
- // void showDialog();
+	void launchModel();
 signals:
   void signal1();
 private:
 	void addInsightItem(const QString& title, const QString& code);
+	void launchProcess(QString name, QStringList arguments, QString working_dir);
+	void runModelNextCommand(const QString& seed_text);
+	void runModelBlockPredicted(const QString& seed_text);
+	void runModelMacrosPredicted(const QString& seed_text);
+	QString getPathToNanoCADLogFolder();
+	QString readLogs();
+	QString formatTextToStandard(const QString& text);
+	QString readFileToString(const QString& filePath);
 
-//    // Для хранения данных о развернутых элементах
 	QMap<QListWidgetItem*, QWidget*> expandedItems;
 	Ui::Widget* ui;
-  //struct WidgetImpl;
-  //WidgetImpl* impl;
+
+	QString comandPredicted;
+	QString macrosPredicted;
+	QString blockPredicted;
+	QString pathToLogs;
+
+	QString predictedText;
 };
-
-
-//#include <QtWidgets>
-//
-//class Widget : public QWidget
-//{
-//    Q_OBJECT
-//
-//public:
-//    Widget(QWidget* parent = nullptr);
-//
-//private slots:
-//    void onItemClicked(QListWidgetItem* item);
-//    void onSaveButtonClicked();
-//    void onTryButtonClicked();
-//
-//private:
-//    void setupUI();
-//    void addInsightItem(const QString& title, const QString& description, const QString& code);
-//
-//    QTabWidget* tabWidget;
-//    QListWidget* insightList;
-//    QListWidget* savedList;
-//
-//    // Для хранения данных о развернутых элементах
-//    QMap<QListWidgetItem*, QWidget*> expandedItems;
-//
-//private:
-//  struct WidgetImpl;
-//  WidgetImpl* impl;
-//};
 
