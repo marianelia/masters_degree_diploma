@@ -20,4 +20,10 @@
 ![](./img/loss_acc_for_macro_and_blocks.jpg)
    
 ## Графический интерфейс
-
+Для того, чтобы собрать приложение, нужно установить nanoCAD SDK, cmake и Qt.
+Консольная генерация проекта по Visual Studio 2022:
+```
+mkdir build
+cd build
+cmake -DNCadSDK="path_to_sdk/sdk25" -DQt5_DIR="path_to_qt/Qt/5.15.16/msvc2019_64/lib/cmake/Qt5" ..
+```
